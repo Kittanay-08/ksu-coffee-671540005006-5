@@ -1,35 +1,86 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>KSU Coffee Menu</title>
-  <style>
-    body { font-family: sans-serif; max-width: 480px; margin: 40px auto; padding: 0 16px; }
-    .menu li { padding: 6px 0; }
-    .version { font-weight: bold; }
-    footer { margin-top: 32px; font-family: monospace; font-size: 0.85em; color: #666; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KSU Coffee</title>
+    <!-- นำเข้าฟอนต์ Prompt จาก Google Fonts เพื่อความสวยงาม -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: #F5F0E6; /* สีพื้นหลังครีมอ่อน */
+            color: #4A3018; /* สีตัวอักษรน้ำตาลกาแฟ */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .menu-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(74, 48, 24, 0.1);
+            max-width: 350px;
+            width: 90%;
+            text-align: center;
+            border-top: 8px solid #8B5A2B;
+        }
+        h1 {
+            margin-top: 0;
+            font-size: 2.2em;
+            color: #6F4E37;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        .author {
+            font-size: 0.85em;
+            color: #888;
+            margin-bottom: 15px;
+        }
+        .version {
+            display: inline-block;
+            background-color: #8B5A2B;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+        ul {
+            list-style-type: none; /* เอาจุดไข่ปลาออก */
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            display: flex;
+            justify-content: space-between; /* แยกชื่อเมนูกับราคาไว้คนละฝั่ง */
+            padding: 15px 0;
+            border-bottom: 1px dashed #DCC5B3;
+            font-size: 1.1em;
+            font-weight: 400;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+        .price {
+            font-weight: 600;
+            color: #D2691E;
+        }
+    </style>
 </head>
 <body>
-  <h1>KSU Coffee</h1>
-  <p>ชื่อ-นามสกุล: ____ รหัสนักศึกษา: ____</p>
-  <ul class="menu">
-    <li>ชื่อเมนู — 00 บาท</li>
-  </ul>
-  <p class="version">Menu v0</p>
-  <footer id="info">กำลังโหลดข้อมูลระบบ...</footer>
-
-  <script>
-    fetch("/api/info")
-      .then((r) => r.json())
-      .then((d) => {
-        document.getElementById("info").textContent =
-          `platform: ${d.platform} · student: ${d.student} · commit: ${d.commit.slice(0, 7)}`;
-      })
-      .catch(() => {
-        document.getElementById("info").textContent = "เรียก /api/info ไม่สำเร็จ";
-      });
-  </script>
+    <div class="menu-container">
+        <h1>KSU Coffee ☕</h1>
+        <p class="author">ผู้จัดทำ: กฤตนัย ดอนแสง<br>[671540005006-5]</p>
+        <div class="version">Menu v1</div>
+        <ul>
+            <li><span>Espresso</span> <span class="price">50 THB</span></li>
+            <li><span>Latte</span> <span class="price">60 THB</span></li>
+            <li><span>Americano</span> <span class="price">55 THB</span></li>
+        </ul>
+    </div>
 </body>
 </html>
